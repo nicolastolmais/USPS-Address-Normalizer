@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Design Document - Group 5</title>
+</head>
+<body>
+    <h1>Outline of Design - Group 5</h1>
+    <p>
+      The main architectural style is a hybrid of n-tier and main program and subroutines. N-tier was chosen because the system has different levels including GUI, address preprocessing, and address normalization. There is a set process which the user instantiates.  Some of n-tier’s strengths lie in adapting to change, separation of duties, and keeping it simple. Information hiding is weaker within the n-tier architecture model, but it is not necessary for this project. Each n-tier layer consists of a main program and subroutines. Transformational problems, such as address normalization, commonly use the main program and subroutine architecture because it is well-suited to  converting input into a common form for the output. Strengths of the main program and subroutines architecture include high cohesion and low coupling.
+    </p>
+    
+    <h2>Future Change and Rationale</h2>
+    <p>Future change will be possible through the modularity that the main and subroutine architecture provides. If any new normalization rules are needed, more subroutines can be written to provide the additional functionality.
+    </p>
+    <h2>Development Language</h2>
+    <p>
+    The team has elected to develop the system in Java. Java was chosen for 3 reasons:
+      <ol>
+        <li> Every member of the team is proficient in Java, so no additional training time will be necessary </li>
+        <li>Java has extensive GUI libraries </li>
+        <li>Java has excellent regex support, which will be invaluable to the normalization process.
+ </li>
+      </ol>
+    </p>
+    <h2>Use Cases </h2>
+    <p>
+      <ul>
+        <li> Single Address in GUI 
+        <ul>
+          <li>The user inputs a single address into multiple address boxes. </li>
+          <li>The user clicks the “Submit” button.</li>
+          <li>The system processes and normalizes the address. </li>
+          <li>The user is notified when the normalization is complete. </li>
+          <li>The user is presented with the normalized address. </li>
+        </ul>
+        </li>
+        <li> Batch of Addresses in GUI 
+          <ul>
+            <li>Multiple Batch in GUI </li>
+            <li>The user browses for a file. </li>
+            <li>The user uploads the file. </li>
+            <li>The user clicks the “Submit” button. </li>
+            <li>The system processes and normalizes the addresses. </li>
+            <li>The user is notified when the normalization is complete. </li>
+            <li>The user clicks the “See Normalized Addresses” button.</li>
+            <li>The user is presented with the normalized addresses. </li>
+          </ul>
+        </li>
+        <li> Batch of Addresses from Command Line
+          <ul>
+          <li> The user executes the program. </li>
+          <li> The system prompts the user for a filepath to the batch </li>
+          <li> The user is prompted for an output filepath </li>
+          <li> The user inputs a correct file path</li>
+          <li> The user is prompted to submit the file</li>
+          <li> The system processes and normalizes teh addresses.</li>
+          <li> The user is notified as the normalization process is completed</li>
+          <li> The user is given a summary sheet </li>
+         </li>
+       </ul>
+    </p>
+    <h2>Class diagram</h2>
+</body>
+</html>
+
+

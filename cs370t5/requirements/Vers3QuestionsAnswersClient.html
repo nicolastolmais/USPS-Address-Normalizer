@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions/Answers For the Client - Group 5</title>
+</head>
+<body>
+    <h1>Questions/Answers For the Client - Group 5</h1>
+
+    <p>
+        Created: Feb 5, 2016. Last Revised: Feb 16, 2016. Document created by members of Team 5 and transcribed into
+         HTML by Alexis Carroll and Stephanie Parkhurst.
+    </p>
+
+    <h2>Purpose</h2>
+    <p>
+        .a The purpose of this document is to record questions that will be presented to the client
+        in order to gain more knowledge about the requirements for the address normalization application and the answers the client gives.
+    </p>
+    <p>
+        .b The client, Dr. Jon Beck, was interviewed on February 11, 2016 in Violet 1328 from 1:30 pm - 3:00 pm.
+    </p>
+
+
+    <h2>Identify Actors</h2>
+    <p>1. Who will be using the system?<br/> 1.1 Non-technical person and technical person.</p>
+    <p>2. Will it be used by the public, one individual, or many users? <br/> 2.1 One individual at a time.</p>
+    <p>2.a Do we need to consider users with disabilites? <br/>2.a1 Not at this time.</p>
+    <p>3. Will the user have a technical background?</p>
+    <p>4. Will the application be working with any other systems? <br/> 4.1 Yes, one mock-up database, but not Google Maps.</p>
+    <p>5. What are the specifications on the external database? <br/> 5.1 Just be given access to mock-up database that has address fields.</p>
+    <p>6. What entity or organization are we working for?<br/> 6.1 Statewide system housed at ATSU that maintains info on physicians, medical students, medical programs, and it has a lot of bad address data in it. If they connect home district, they get funds from legislature. Thus, half of the addresses will be from MO.</p>
+
+    <h2>Scenarios</h2>
+    <p>7. What should the system do with caught address errors that are normalizable? <br/> 7.1 The address should just be normalized with no user interaction.
+    <p>7.aa What should the system do with addresses that are not normalizable? <br/> 7.aa1 In the case we detect but cannot normalize errors, we can have it go to a separate bad output file where the user can choose a variety of possible addresses or to operator.</p>
+    <p>7.a Should we fix spelling errors? <br/> 7.a1 Yes if it is safe to do so.</p>
+    <p>7.b Once we get normalized addresses, will there be an option to put them back in the database so we don’t have to renormalize them again?<br/> 7.b1 Might do this in the future, but not our problem at the moment.</p>
+    <p>7.c If the system crashes in the middle, what should happen? <br/> 7.c1 Restart the whole data. (Do whatever is the safest to not lose data).</p>
+    <p>7.d What should the system do with duplicate addresses?<br/>7.d1 The output should notify the user about the duplication and which one it is. This should happen before and after normalization.</p>
+    <p>7.e Should we expect non-ASCII characters?<br/> 7.e1 Dr. Beck will get back to us about this.</p>
+
+    <h2>Use Cases</h2>
+    <p>8. How will this system be run?<br/>8.1 Two ways this will be run. The first way is a non-technical person at computer with a program running where a person can type address and hit validate, and it will be validated. The user can then copy and paste the normalized address into the database. The second way is with a tech-savvy person who will provide batches of addresses of arbitrary size and wants it processed in a batch. Depending upon the types of errors found will depend on how things will preceed from there. The second option might include a flash drive and searching for correct folders also.</p>
+    <p>9. What should the system do with mixed up address fields? <br/> 9.1 Fields will not be mixed up. You can blindly assume that the first field is the address. More than one item may be stuff inside a field box though for Puerto Rico, so safety checks are needed.</p>
+    <p>9.a What specific checks can we do to make sure the data is right? <br/> 9.a1 Check state, city, zip-5, and zip-4 from static accesses to a database once a month. If zip-4 is not generated, try to automatically generate it.Might spell check (distance between this string and that string) and fix “closest one”. Might be a pattern in errors and figure out errors by that approach.</p>
+    <p>10. What should the system do if there are Spanish inputs or abbreviations? <br/> 10.1 The system should handle addresses appropriately.</p>
+
+    <h2>Functional Requirements</h2>
+    <p>11. Will there be a user interface or just a back-end system?<br/> 11.1 Ability to use user-interface and command line will be beneficial, and there will also be a back-end system.</p>
+    <p>12. What exactly are the inputs and outputs?<br/> 12.1 The inputs will be either one address or many addresses in all sorts of formats and mispellings. The outputs will be a new file with the addresses that were successful, ones that were not successful, and possibility of user interaction to choose the appropriate address. The output file should be configurable via command or set-up option. The output format will be agreed upon by the class and have the same fields as the input. This needs to be explored more for what exactly displays in the output file.</p>
+    <p>13. Should the output addresses be sorted or categorized? If so, how? <br/>13.1 The outputs will be in the same order as the input, unless another sorting makes sense. Might have options for the user to choose how they want the output to be categorized.</p>
+    <p>13.a Can errors be deferred to the operator and have operator choose option? <br/> 13.a1 Yes. Options can be "option A", "option B", or "reject all". Do not let operator handle impossible errors, just kick it immediately to output file of issues.</p>
+    <p>14. What defines a valid input?<br/> 14.1 Post office standards. Will be a spot for address field, city, state, zip-5, and zip-4 with no names attached.</p>
+    <p>15. What invalid inputs are the system not responsible for handling?<br/> 15.1 If we can’t detect error, we can’t react to it (like wrong street number)</p>
+    <p>16. What are the most critical functions within the application?<br/> 16.1 The number one priority is to normalize correct addresses. The second priority is to recognize incorrect addresses so it does not get automatically accepted. Rather have questionable result rejected rather than making a guess and have it be wrong. (Do no harm). (Rather false negative, rather than false positive).Do not need to know if the address does exist, but if it could exist.</p>
+    <p>17. Will we be dealing with postal addressing standards, business addressing standards, or both standards?<br/> 17.1 Both types of addresses. Question from Client: will we need to know which addresses are for personal or business?</p>
+    <p>18. Will the inputs be supplied in plain text or in a structured file such as XML or CSV?<br/> 18.1 Inputs will probably be supplied in CSV formats.</p>
+
+    <h2>Non-Functional Requirements</h2>
+    <p>19. How many addresses will the system need to normalize at a time?<br/> 19.1 From one address to 50,000 addresses at a time.</p>
+    <p>20. Will these addresses be sensitive? How secure does the system need to be?<br/>20.1 No authentication needed for user, no cryption, and does not need real-time access.</p>
+    <p>21. What platforms should this application be able to run on?<br/> 21.1 No preferences of platforms at this time.</p>
+    <p>22. Should the system be mobile friendly?<br/> 22.1 No need to be mobile friendly, just using it in an office setting.</p>
+    <p>23. Are there any space requirements that the system must meet?<br/>23.1 Space is not an issue.</p>
+    <p>24. Will the system need to meet a speed requirement (processing requests in a certain amount of time)?<br/> 24.1 Speed is not an issue.</p>
+    <p> 24.a Will we need a working prototype? <br/> 24.a1 That would be very nice.</p>
+    <p>24.b Will we need to cross-reference the data against another system? <br/> 24.a1 No.</p>
+    <p>24.c Will this be single access or multiple accesses at the same time? <br/> 24.b1 Single accesses.</p>
+    <p>24.d Open source project? <br/> 24.d1 It would be preferred.</p>
+    <p>25. What is the timetable for this project? <br/> 25.1 Due the last week of class.</p>
+    <p>25.a How will this project be graded? <br/> 25.a1 By adhering to the specifications given.</p>
+    <p>26. What maintenance will need to be done on this system after deployment?</p>
+    <p>27. What level of documentation is necessary? <br/> 27.1 Not a clue.</p>
+</body>
+</html>

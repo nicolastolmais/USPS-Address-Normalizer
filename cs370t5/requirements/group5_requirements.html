@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Normalization Software Formal Requirements</title>
+</head>
+<body>
+<h1>Address Normalization Software Formal Requirements</h1>
+<p>Group 5</p>
+<p>Contact: John McKeever, jmm7148@truman.edu</p>
+<p>Latest Revision Date: 02/22/16</p>
+
+
+<h2>1. Introduction</h2>
+<h3>1.1 Purpose</h3>
+
+<p>
+    The purpose of this document is to lay out the requirements for a system that normalizes addresses using USPS
+    standards. It will take an input of one address or a batch of addresses and output normalized versions of the
+    input addresses. This system will be built for Dr. Jon Beck. The requirements presented in this document are
+    based on the interview with the client on February 11, 2016. Delivery of this document will be on Wednesday
+    February 17, 2016 at 12:00 pm.
+</p>
+
+<h3>1.2 Success Criteria</h3>
+<p>
+    The system will normalize all possible correctly entered addresses and allow the user to manually normalize all
+    addresses that the system cannot handle on its own.
+</p>
+
+
+<h2>2. Functional Requirements</h2>
+<p>
+    2.1 The system must take as input either a single address or a file containing a batch of addresses (questions
+    12, 18).
+</p>
+<p>
+    2.2 The system must deliver output as a separate file during batch normalization(question 12).
+</p>
+<p>
+	2.3 The system must output any non-normalizable addresses it encounters during batch processing to a distinct error catching file (questions 7, 15, 16).
+</p>
+<p>
+    2.4 The output file must preserve the original ordering of the addresses in the input file (question 13).
+</p>
+<p>
+    2.5 The system must normalize all normalizable addresses taken as input (question 16).
+</p>
+<p>
+    2.6 The system must accept any input which conforms to the following format: {address, city, state, zip-5, zip-4}
+    (questions 14, 17).
+</p>
+<p>
+    2.7 The system must inform the user about any duplicated addresses it detects both before and after normalization
+    (question 7.d).
+</p>
+<p>
+    2.8 The system must correct any spelling errors that are possible to correct (questions 7.a, 9.a).
+</p>
+<p>
+    2.9 The system must present the user with a list of choices in the event that an address is normalizable but the
+    system is unable to distinguish between two or more possible addresses (question 13.a).
+</p>
+<p>
+    2.10 The user should be able to choose the format of the output file (question 12).
+</p>
+
+
+<h2>3. Non-Functional Requirements</h2>
+<p>
+    3.1 The system shall be able to take an arbitrary number of addresses up to 50,000 as input at once (question 19).
+</p>
+<p>
+    3.2 The system shall allow only one user to access it at a time (question 24).
+</p>
+<p>
+    3.3 The system shall be open-source (question 24.d).
+</p>
+<p>
+    3.4 The user will be able to interact with the system via GUI and command line (question 11).
+</p>
+
+
+<h2>4. Glossary</h2>`
+<p>
+    4.1 GUI: In computer science, a graphical user interface or GUI, pronounced /ˈɡuːi/ ("gooey"), is a type of interface
+    that allows users to interact with electronic devices through graphical icons and visual indicators, as opposed to
+    text-based interfaces, typed command labels or text navigation.
+</p>
+<p>
+    4.2 Normalize: To bring or return to a normal condition or state. In this instance, the normalization of addresses is
+    to make them compliant with USPS standards.
+</p>
+<p>
+    4.3 Open-source: Software for which the original source code is made freely available and may be
+    redistributed and modified.
+</p>
+</body>
+</html>
